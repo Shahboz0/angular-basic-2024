@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
+import {JsonPipe, NgForOf, NgIf} from "@angular/common";
+
+interface User {
+  name: string;
+  id: number;
+}
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf],
+  imports: [FormsModule, ReactiveFormsModule, NgIf, NgForOf, JsonPipe],
   template: `
     <main class="main">
-      <button (click)="onClick()">Hide text</button>
-      <input type="text" [(ngModel)]="title">
-      <h1 *ngIf="show">{{ title }}</h1>
+      <div *ngFor="let item of userArr">
+        <h2>{{ item | json }}</h2>
+      </div>
     </main>
   `,
   styles: [`
@@ -21,10 +26,18 @@ import {NgIf} from "@angular/common";
   `]
 })
 export class MainComponent {
-  show = true;
-  title: string = '';
-
-  onClick(): void {
-    this.show = !this.show
-  }
+  userArr: Array<User> = [
+    {
+      name: 'user1',
+      id: 0
+    },
+    {
+      name: 'user2',
+      id: 1
+    },
+    {
+      name: 'user3',
+      id: 2
+    },
+  ]
 }
