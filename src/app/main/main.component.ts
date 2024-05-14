@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <main class="main">
+      <input type="text" [value]="title" (input)="onInput($event)">
       <h1>{{ title }}</h1>
-      <input [value]="title">
     </main>
   `,
   styles: [`
@@ -18,5 +18,12 @@ import { Component } from '@angular/core';
   `]
 })
 export class MainComponent {
-  title: string = 'Main component'
+  title: string = ''
+
+  onInput(event: Event): void {
+    const eventTarget = event.target as HTMLElement
+    // @ts-ignore
+    this.title = event.target.value
+    console.log(event)
+  }
 }
