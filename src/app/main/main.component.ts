@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {JsonPipe, NgForOf, NgIf} from "@angular/common";
+import {JsonPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 
 interface User {
   name: string;
@@ -10,10 +10,11 @@ interface User {
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf, NgForOf, JsonPipe],
+  imports: [FormsModule, ReactiveFormsModule, NgIf, NgForOf, JsonPipe, NgStyle],
   template: `
     <main class="main">
-      <div *ngFor="let item of userArr">
+      <button (click)="onClick()">Change background color</button>
+      <div *ngFor="let item of userArr" [ngStyle]="style">
         <h2>{{ item | json }}</h2>
       </div>
     </main>
@@ -26,6 +27,7 @@ interface User {
   `]
 })
 export class MainComponent {
+  style = { 'background': 'white' }
   userArr: Array<User> = [
     {
       name: 'user1',
@@ -40,4 +42,8 @@ export class MainComponent {
       id: 2
     },
   ]
+
+  onClick(): void {
+    this.style = { 'background': 'yellow' }
+  }
 }
