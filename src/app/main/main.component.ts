@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, ReactiveFormsModule],
   template: `
     <main class="main">
-      <input type="text" [value]="title" (input)="onInput($event)">
+      <input type="text" [(ngModel)]="title">
       <h1>{{ title }}</h1>
     </main>
   `,
@@ -19,11 +20,4 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
   title: string = ''
-
-  onInput(event: Event): void {
-    const eventTarget = event.target as HTMLElement
-    // @ts-ignore
-    this.title = event.target.value
-    console.log(event)
-  }
 }
