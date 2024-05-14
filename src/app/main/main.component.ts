@@ -4,8 +4,14 @@ import { Component } from '@angular/core';
   selector: 'app-main',
   standalone: true,
   imports: [],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  template: `
+    <main class="main">
+      <h1>Hello world</h1>
+    </main>
+  `,
+  styles: `
+
+  `
 })
 export class MainComponent {
 
