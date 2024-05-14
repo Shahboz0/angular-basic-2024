@@ -6,13 +6,20 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <main class="main">
-      <h1>Hello world</h1>
+      <h1>{{ title }}</h1>
     </main>
   `,
-  styles: `
+  styles: [`
+    main {
+      width: 100vw;
+      height: 100vh;
 
-  `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  `]
 })
 export class MainComponent {
-
+  title: string = 'Main component'
 }
