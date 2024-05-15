@@ -8,12 +8,14 @@ import {
   SimpleChanges, ViewChild
 } from '@angular/core';
 import {ChildComponent} from "../child/child.component";
+import {ColorChangeDirective} from "../directive/color-change.directive";
 
 @Component({
   selector: 'app-parent',
   standalone: true,
   imports: [
-    ChildComponent
+    ChildComponent,
+    ColorChangeDirective
   ],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
