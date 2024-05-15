@@ -2,7 +2,7 @@ import {
   AfterContentChecked,
   AfterContentInit, AfterViewChecked, AfterViewInit,
   Component,
-  DoCheck,
+  DoCheck, ElementRef,
   OnChanges, OnDestroy,
   OnInit,
   SimpleChanges
@@ -15,38 +15,21 @@ import {
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnChanges, OnInit, DoCheck,
-  AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class ParentComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(){
+  constructor(private elRef: ElementRef){
     console.log("constructor")
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('on changes')
+    console.log(this.elRef.nativeElement.querySelector('p'))
   }
 
   ngOnInit(): void {
     console.log('on init')
+    console.log(this.elRef.nativeElement.querySelector('p'))
   }
-  ngDoCheck(): void {
-    console.log('do check')
-  }
-
-  ngAfterContentInit(): void {
-    console.log('content init')
-  }
-  ngAfterContentChecked(): void {
-    console.log('content checked')
-  }
-
 
   ngAfterViewInit(): void {
     console.log('view init')
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('view checked')
+    console.log(this.elRef.nativeElement.querySelector('p'))
   }
 
   ngOnDestroy(): void {
