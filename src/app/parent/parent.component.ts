@@ -5,7 +5,7 @@ import {
   DoCheck, ElementRef,
   OnChanges, OnDestroy,
   OnInit,
-  SimpleChanges
+  SimpleChanges, ViewChild
 } from '@angular/core';
 import {ChildComponent} from "../child/child.component";
 
@@ -21,12 +21,15 @@ import {ChildComponent} from "../child/child.component";
 export class ParentComponent {
   parentCounter = 0;
 
+  @ViewChild(ChildComponent)
+  childComp: ChildComponent | undefined
+
   increment():void {
-    this.parentCounter++
+    this.childComp?.increment()
   }
 
   decrement(): void {
-    this.parentCounter--
+    this.childComp?.decrement()
   }
 
   onEventFromChild(event: number): void {
