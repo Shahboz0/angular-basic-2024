@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-export class ChildComponent {
+export class ChildComponent  implements OnInit, OnChanges {
+
+  @Input()
+  counter = 0;
+
+  ngOnInit(): void {
+    console.log(`in child on init ${this.counter}`)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(`in child ${this.counter}`)
+  }
 
 }

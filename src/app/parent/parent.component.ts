@@ -7,34 +7,25 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
+import {ChildComponent} from "../child/child.component";
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [],
+  imports: [
+    ChildComponent
+  ],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ParentComponent {
+  parentCounter = 0;
 
-  constructor(private elRef: ElementRef){
-    console.log("constructor")
-    console.log(this.elRef.nativeElement.querySelector('p'))
+  increment():void {
+    this.parentCounter++
   }
 
-  ngOnInit(): void {
-    console.log('on init')
-    console.log(this.elRef.nativeElement.querySelector('p'))
+  decrement(): void {
+    this.parentCounter--
   }
-
-  ngAfterViewInit(): void {
-    console.log('view init')
-    console.log(this.elRef.nativeElement.querySelector('p'))
-  }
-
-  ngOnDestroy(): void {
-    console.log('destroy')
-  }
-
-
 }
