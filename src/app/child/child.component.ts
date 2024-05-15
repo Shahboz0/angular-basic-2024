@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -12,12 +12,15 @@ export class ChildComponent  implements OnInit, OnChanges {
   @Input()
   counter = 0;
 
+  @Output()
+  newCounter = new EventEmitter<number>()
+
   ngOnInit(): void {
     console.log(`in child on init ${this.counter}`)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(`in child ${this.counter}`)
+    this.newCounter.emit(this.counter + 1000);
   }
 
 }

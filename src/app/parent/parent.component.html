@@ -5,5 +5,6 @@
 </div>
 
 <div style="border: 1px solid green">
-  <app-child [counter]="parentCounter"></app-child>
+  <app-child [counter]="parentCounter"
+              (newCounter)="onEventFromChild($event)"></app-child>
 </div>
