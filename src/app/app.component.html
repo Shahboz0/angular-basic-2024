@@ -1,1 +1,3 @@
 <router-outlet />
+<button (click)="destroyComp = !destroyComp">click me</button>
+<app-parent *ngIf="destroyComp"></app-parent>
