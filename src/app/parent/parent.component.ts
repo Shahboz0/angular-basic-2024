@@ -33,8 +33,4 @@ export class ParentComponent {
   decrement(): void {
     this.childComp?.decrement()
   }
-
-  onEventFromChild(event: number): void {
-    console.log(`counter from child ${event}`)
-  }
 }

@@ -1,3 +1,6 @@
 <router-outlet />
 <button (click)="destroyComp = !destroyComp">click me</button>
 <app-parent *ngIf="destroyComp"></app-parent>
+<h1>{{ user | json }}</h1>
+<h1>{{ 'USER' | lowercase }}</h1>
+<h1>{{ '3.543634654' | number: '1.0-0'}}</h1>
