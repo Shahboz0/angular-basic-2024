@@ -6,18 +6,16 @@ import {HttpService} from "./http.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'angular-basic';
 
   dataInComp: any
   constructor(private _httpService: HttpService) {
   }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.dataInComp = this._httpService.datas
-    }, 3000)
+
+
+  onClick(): void {
+    this.dataInComp = this._httpService.datas
   }
-
-
 }
