@@ -1,5 +1,6 @@
 <router-outlet />
 
 <button (click)="onClick()">get data from fake back</button>
-<p>{{ dataInComp  | json }}</p>
-<h1>lgjldfgjldfkkj</h1>
+<div *ngFor="let data of dataInComp">
+  <p>{{ data.title }}</p>
+</div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpService} from "./http.service";
+import {HttpService, Idata} from "./http.service";
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,13 @@ import {HttpService} from "./http.service";
 export class AppComponent {
   title = 'angular-basic';
 
-  dataInComp: any
+  dataInComp: Idata[] = []
   constructor(private _httpService: HttpService) {
   }
 
 
 
   onClick(): void {
-    this.dataInComp = this._httpService.datas
+    this._httpService.getDataFromFakeBack().subscribe((value) => this.dataInComp = value)
   }
 }
