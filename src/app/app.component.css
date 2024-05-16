@@ -1,0 +1,11 @@
+.flex-class {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 ;
+}
+
+button {
+  color: white;
+  background: green;
+  cursor: pointer;
+}

@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {ParentComponent} from "./parent/parent.component";
 import {ChildComponent} from "./child/child.component";
 import {ColorChangeDirective} from "./directive/color-change.directive";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -17,6 +18,8 @@ import {ColorChangeDirective} from "./directive/color-change.directive";
     HttpClientModule,
     BrowserModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
