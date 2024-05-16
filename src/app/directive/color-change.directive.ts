@@ -1,8 +1,7 @@
 import {Directive, HostBinding, HostListener} from '@angular/core';
 
 @Directive({
-  selector: '[appColorChange]',
-  standalone: true
+  selector: '[appColorChange]'
 })
 export class ColorChangeDirective {
 

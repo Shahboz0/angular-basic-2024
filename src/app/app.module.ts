@@ -4,16 +4,19 @@ import {AppComponent} from "./app.component";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
+import {ParentComponent} from "./parent/parent.component";
+import {ChildComponent} from "./child/child.component";
+import {ColorChangeDirective} from "./directive/color-change.directive";
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective],
   imports: [
     CommonModule,
     HttpClientModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
   ],
   bootstrap: [AppComponent]
 })
