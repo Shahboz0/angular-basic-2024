@@ -18,7 +18,7 @@ export class HttpService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  getDataFromFakeBack(): Observable<Idata[]> {
-    return this._httpClient.get<Idata[]>('https://jsonplaceholder.typicode.com/todos')
+  getDataFromFakeBack(): Observable<Idata> {
+    return this._httpClient.get<Idata>('https://jsonplaceholder.typicode.com/todos/1')
   }
 }

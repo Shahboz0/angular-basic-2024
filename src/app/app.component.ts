@@ -9,7 +9,7 @@ import {HttpService, Idata} from "./http.service";
 export class AppComponent {
   title = 'angular-basic';
 
-  dataInComp: Idata[] = []
+  dataInComp: Idata | undefined
   constructor(private _httpService: HttpService) {
   }
 
