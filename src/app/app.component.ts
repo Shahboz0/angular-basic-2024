@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {ParentComponent} from "./parent/parent.component";
 import {AsyncPipe, DecimalPipe, JsonPipe, LowerCasePipe, NgIf} from "@angular/common";
 import {interval, map, Observable, Subscription} from "rxjs";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ParentComponent, NgIf, JsonPipe, LowerCasePipe, DecimalPipe, AsyncPipe],
+  imports: [RouterOutlet, ParentComponent, NgIf, JsonPipe, LowerCasePipe, DecimalPipe, AsyncPipe, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,21 +19,8 @@ export class AppComponent {
 
   interval$ = new Observable<number>()
 
-  constructor() {
-    const observable = new Observable((subscriber) => {
-      subscriber.next(1);
-      subscriber.next(2);
-      subscriber.next(3);
-      setTimeout(() => {
-        subscriber.next(4);
-        subscriber.complete();
-      }, 1000);
-    });
+  constructor(private httpClient: HttpClient) {
 
-    observable.subscribe((value) => console.log(value))
-
-    this.interval$ = interval(1000).pipe(map((x) => x * x) )
-
-    this.subscription.add(this.interval$.subscribe((value) => console.log('interval ', value)))
+    this.httpClient.get('https://jsonplaceholder.typicode.com/todos/').subscribe((value) => console.log(value))
   }
 }
