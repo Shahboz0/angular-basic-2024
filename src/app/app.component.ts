@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {ParentComponent} from "./parent/parent.component";
 import {DecimalPipe, JsonPipe, LowerCasePipe, NgIf} from "@angular/common";
-import {interval, Observable, Subscription} from "rxjs";
+import {interval, map, Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,7 @@ export class AppComponent {
 
     observable.subscribe((value) => console.log(value))
 
-    const interval$ = interval(1000)
+    const interval$ = interval(1000).pipe(map((x) => x * x) )
 
     this.subscription.add(interval$.subscribe((value) => console.log('interval ', value)))
   }
