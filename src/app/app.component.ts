@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from "./http.service";
 
 @Component({
@@ -6,11 +6,18 @@ import {HttpService} from "./http.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-basic';
 
   dataInComp: any
   constructor(private _httpService: HttpService) {
-    this.dataInComp = this._httpService.datas
   }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.dataInComp = this._httpService.datas
+    }, 3000)
+  }
+
+
 }
