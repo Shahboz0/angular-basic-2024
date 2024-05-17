@@ -20,7 +20,13 @@ const routes: Routes = [
     path: 'gift', component: GiftComponent
   },
   {
-    path: '**', component: ErrorPageComponent
+    path: 'error', component: ErrorPageComponent
+  },
+  {
+    path: '**', redirectTo: '/error'
+  },
+  {
+    path: '', redirectTo: '/home', pathMatch: 'full'
   }
 ]
 
