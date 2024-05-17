@@ -8,19 +8,26 @@ import {ParentComponent} from "./parent/parent.component";
 import {ChildComponent} from "./child/child.component";
 import {ColorChangeDirective} from "./directive/color-change.directive";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CommunicationService} from "./communication.service";
+import {HomeComponent} from "./home/home.component";
+import {AboutComponent} from "./about/about.component";
+import {GiftComponent} from "./gif/gift.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 
 
 @NgModule({
-  declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective],
+  declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
+    HomeComponent, AboutComponent, GiftComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     BrowserModule,
-    RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers:[CommunicationService]
 })
 export class AppModule { }
