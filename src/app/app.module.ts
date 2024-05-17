@@ -15,12 +15,15 @@ import {GiftComponent} from "./gif/gift.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {GuardComponent} from "./guard/guard.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatTableModule} from "@angular/material/table";
+import {TableComponent} from "./table/table.component";
 
 
 @NgModule({
   declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
     HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent,
-    GuardComponent
+    GuardComponent, TableComponent
   ],
   imports: [
     CommonModule,
@@ -28,10 +31,11 @@ import {GuardComponent} from "./guard/guard.component";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule
   ],
   bootstrap: [AppComponent],
-  providers: [CommunicationService]
+  providers: [CommunicationService, provideAnimationsAsync()]
 })
 export class AppModule {
 }
