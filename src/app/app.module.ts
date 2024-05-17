@@ -20,6 +20,7 @@ import {MatTableModule} from "@angular/material/table";
 import {TableComponent} from "./table/table.component";
 import {NgxEchartsModule} from "ngx-echarts";
 import {ChartsComponent} from "./charts/charts.component";
+import {MaterialModule} from "./material.module";
 
 
 @NgModule({
@@ -34,10 +35,10 @@ import {ChartsComponent} from "./charts/charts.component";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MatTableModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    MaterialModule
   ],
   bootstrap: [AppComponent],
   providers: [CommunicationService, provideAnimationsAsync()]
