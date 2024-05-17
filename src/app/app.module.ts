@@ -18,12 +18,14 @@ import {GuardComponent} from "./guard/guard.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTableModule} from "@angular/material/table";
 import {TableComponent} from "./table/table.component";
+import {NgxEchartsModule} from "ngx-echarts";
+import {ChartsComponent} from "./charts/charts.component";
 
 
 @NgModule({
   declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
     HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent,
-    GuardComponent, TableComponent
+    GuardComponent, TableComponent, ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,10 @@ import {TableComponent} from "./table/table.component";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   bootstrap: [AppComponent],
   providers: [CommunicationService, provideAnimationsAsync()]
