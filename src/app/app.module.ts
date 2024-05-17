@@ -21,12 +21,13 @@ import {TableComponent} from "./table/table.component";
 import {NgxEchartsModule} from "ngx-echarts";
 import {ChartsComponent} from "./charts/charts.component";
 import {MaterialModule} from "./material.module";
+import {LazyModule} from "./lazy.module";
 
 
 @NgModule({
   declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
-    HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent,
-    GuardComponent, TableComponent, ChartsComponent
+    HomeComponent, GiftComponent, ErrorPageComponent,
+    GuardComponent, TableComponent
   ],
   imports: [
     CommonModule,
@@ -35,10 +36,8 @@ import {MaterialModule} from "./material.module";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
-    }),
-    MaterialModule
+    MaterialModule,
+    LazyModule
   ],
   bootstrap: [AppComponent],
   providers: [CommunicationService, provideAnimationsAsync()]

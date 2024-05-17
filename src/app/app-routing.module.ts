@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
-import {AboutComponent} from "./about/about.component";
 import {GiftComponent} from "./gif/gift.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {GuardService} from "./guard.service";
@@ -15,7 +14,7 @@ const routes: Routes = [
     path: 'home', component: HomeComponent,
   },
   {
-    path: 'about', component: AboutComponent
+    path: 'about', loadChildren: async () => import('./lazy.module').then(({LazyModule: Module }) => Module)
   },
   {
     path: 'gift', component: GiftComponent, canActivate: [GuardService]
