@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {AppComponent} from "./app.component";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
@@ -14,12 +14,14 @@ import {AboutComponent} from "./about/about.component";
 import {GiftComponent} from "./gif/gift.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ErrorPageComponent} from "./error-page/error-page.component";
-
+import {GuardComponent} from "./guard/guard.component";
 
 
 @NgModule({
   declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
-    HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent],
+    HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent,
+    GuardComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -29,6 +31,7 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
-  providers:[CommunicationService]
+  providers: [CommunicationService]
 })
-export class AppModule { }
+export class AppModule {
+}

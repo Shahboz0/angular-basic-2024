@@ -1,4 +1,10 @@
 <header>
+  <button (click)="authService.login()">
+    Login
+  </button>
+  <button (click)="authService.logout()">
+    Logout
+  </button>
   <ul>
     <li>
       <a routerLink="/">Home</a>

@@ -5,6 +5,7 @@ import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
 import {GiftComponent} from "./gif/gift.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {GuardService} from "./guard.service";
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
     path: 'about', component: AboutComponent
   },
   {
-    path: 'gift', component: GiftComponent
+    path: 'gift', component: GiftComponent, canActivate: [GuardService]
   },
   {
     path: 'error', component: ErrorPageComponent
