@@ -13,12 +13,13 @@ import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
 import {GiftComponent} from "./gif/gift.component";
 import {AppRoutingModule} from "./app-routing.module";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 
 
 @NgModule({
   declarations: [AppComponent, ParentComponent, ChildComponent, ColorChangeDirective,
-    HomeComponent, AboutComponent, GiftComponent],
+    HomeComponent, AboutComponent, GiftComponent, ErrorPageComponent],
   imports: [
     CommonModule,
     HttpClientModule,

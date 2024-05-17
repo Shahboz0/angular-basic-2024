@@ -4,6 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
 import {GiftComponent} from "./gif/gift.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'gift', component: GiftComponent
+  },
+  {
+    path: '**', component: ErrorPageComponent
   }
 ]
 
